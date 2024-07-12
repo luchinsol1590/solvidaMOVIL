@@ -9,6 +9,39 @@ class Prelogin extends StatefulWidget {
 }
 
 class _PreloginState extends State<Prelogin> {
+   
+   Widget sollogo(double ancho,double alto,double texto) {
+    return Column(
+      children: [
+        Center(
+          child: Container(
+            width: ancho,
+            height: alto,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('lib/imagenes/nuevecito.png'),
+                fit: BoxFit.contain,
+                
+              ),
+            ),
+          ),
+        ),
+        Center(
+          child: Text("Bienvenido a la",
+          style: TextStyle(
+            fontSize: texto,
+            color: Colors.white,fontWeight: FontWeight.w700),),
+        ),
+        Center(
+          child: Text("Familia Sol",
+          style: TextStyle(
+            fontSize: texto,
+            color: Colors.white,fontWeight: FontWeight.w700),),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,16 +60,16 @@ class _PreloginState extends State<Prelogin> {
               LayoutBuilder(
                 builder: (context, constraints) {
                   if (constraints.maxWidth <= Breakpoint.xsmall) {
-                    return _sollogo();
+                    return sollogo(200,200,14);
                     
                   } else if (constraints.maxWidth <= Breakpoint.small) {
-                    return _sollogo1();
+                    return sollogo(250,300,20);
                   } else if (constraints.maxWidth <= Breakpoint.medium) {
-                    return _sollogo2();
+                     return sollogo(320,350,25);
                   } else if (constraints.maxWidth <= Breakpoint.large) {
-                    return _sollogo3();
+                     return sollogo(380,490,35);
                   } else {
-                    return _sollogo4();/*Text(
+                    return sollogo(500,520,45);/*Text(
                       "out range",
                       style: TextStyle(fontSize: 60),
                     );*/
@@ -50,95 +83,6 @@ class _PreloginState extends State<Prelogin> {
     );
   }
 
-  Widget _sollogo() {
-    return Center(
-      child: Container(
-        width: 200,
-        height: 200,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('lib/imagenes/nuevecito.png'),
-            fit: BoxFit.contain,
-            
-          ),
-        ),
-      ),
-    );
-  }
-  Widget _sollogo1() {
-    return Center(
-      child: Container(
-        width: 250,
-        height: 250,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('lib/imagenes/nuevecito.png'),
-            fit: BoxFit.contain,
-            
-          ),
-        ),
-      ),
-    );
-  }
-  Widget _sollogo2() {
-    return Center(
-      child: Container(
-        //width: 350,
-        height: 300,
-        decoration:const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('lib/imagenes/nuevecito.png'),
-           fit: BoxFit.contain,
-            
-          ),
-        ),
-      ),
-    );
-  }
-  Widget _sollogo3() {
-    return Center(
-      child: Container(
-        //width: 350,
-        height: 350,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('lib/imagenes/nuevecito.png'),
-           fit: BoxFit.contain,
-            
-          ),
-        ),
-      ),
-    );
-  }
-  Widget _sollogo4() {
-    return Column(
-      children: [
-        Center(
-          child: Container(
-            //width: 350,
-            height: 400,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('lib/imagenes/nuevecito.png'),
-                fit: BoxFit.contain,
-                
-              ),
-            ),
-          ),
-        ),
-        const Center(
-          child: Text("Bienvenido a la",
-          style: TextStyle(
-            fontSize: 69,
-            color: Colors.white,fontWeight: FontWeight.w700),),
-        ),
-       const Center(
-          child: Text("Familia Sol",
-          style: TextStyle(
-            fontSize: 69,
-            color: Colors.white,fontWeight: FontWeight.w700),),
-        ),
-      ],
-    );
-  }
+
+ 
 }
