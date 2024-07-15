@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:solvida/componentes/predetail.dart';
+import 'package:solvida/componentes/prefinal.dart';
 import 'package:solvida/componentes/prelogin.dart';
 import 'package:solvida/componentes/solvida.dart';
 
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Prelogin(),
+      home: const Predetail(),
     );
   }
 }
