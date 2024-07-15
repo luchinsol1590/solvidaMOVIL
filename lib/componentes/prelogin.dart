@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:solvida/componentes/responsiveUI/breakpoint.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 class Prelogin extends StatefulWidget {
   const Prelogin({super.key});
@@ -9,198 +10,168 @@ class Prelogin extends StatefulWidget {
 }
 
 class _PreloginState extends State<Prelogin> {
-  Widget sollogo(String tama, double ancho, double actual, double alto,
-      double texto1, double texto2, double botones, double textoboton) {
-    return Container(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            Text(
-              tama,
-              style: const TextStyle(color: Colors.white),
-            ),
-            Text(
-              "$actual",
-              style: const TextStyle(color: Colors.white),
-            ),
-            Expanded(
-              child: Container(
-                  //color: const Color.fromARGB(255, 145, 144, 144),
-                  child: Column(
-                children: [
-                  Center(
-                    child: Container(
-                      width: ancho,
-                      height: alto,
-                      decoration: const BoxDecoration(
-                        //color: Colors.grey,
-                        image: DecorationImage(
-                          image: AssetImage('lib/imagenes/nuevecito.png'),
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Center(
-                    child: Text(
-                      "Bienvenido a la",
-                      style: TextStyle(
-                          fontSize: texto1,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      "Familia Sol",
-                      style: TextStyle(
-                          fontSize: texto1,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Center(
-                    child: Text(
-                      "Descubre las últimas novedades\n de la familia Sol",
-                      style: TextStyle(
-                          fontSize: texto2,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
-              )),
-            ),
-            Container(
-              //color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: ancho / botones,
-                    height: 45,
-                    child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 255, 255, 255),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        child: Text(
-                          "Iniciar Sesión",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            
-                              fontSize: textoboton,
-                              fontWeight: FontWeight.w700,
-                              color: const Color.fromARGB(255, 61, 84, 207)),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Container(
-                    width: ancho / botones,
-                    height: 45,
-                    child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 61, 84, 207),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8))),
-                        child: Text(
-                          "Registrarse",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: textoboton,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        )),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 80,
-            ),
-          ],
-        ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('lib/imagenes/azul.jpg'),
-                fit: BoxFit
-                    .cover, // Cambiado a BoxFit.cover para que cubra todo el Container
-              ),
-            ),
+        backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+        body: Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return Stack(
+                children: [
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: 200,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('lib/imagenes/aguita2.png'),
+                              fit: BoxFit.cover
+                          )
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 80,
+                        ),
+                        Container(
+                          width: 150,
+                          height: 150,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('lib/imagenes/nuevecito.png'))),
+                        ),
+                        Container(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Inicia Sesión",
+                                style: TextStyle(
+                                    fontSize: 36,
+                                    color: Color.fromARGB(255, 125, 120, 120),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const Text(
+                                "Llevando vida a tu hogar!",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Color.fromARGB(255, 61, 84, 207),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Form(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(10)),
+                                      child: TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Usuario',
+                                            hintText: 'Usuario',
+                                            border: InputBorder.none,
+                                            labelStyle: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.grey),
+                                            hintStyle: TextStyle(
+                                                fontSize: 17, color: Colors.grey),
+                                            prefixIcon: Icon(
+                                              Icons.person,
+                                              color: Colors.grey,
+                                            )),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(10)),
+                                      child: TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Contraseña',
+                                            hintText: 'Contraseña',
+                                            border: InputBorder.none,
+                                            labelStyle: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.grey),
+                                            hintStyle: TextStyle(
+                                                fontSize: 17, color: Colors.grey),
+                                            prefixIcon: Icon(
+                                              Icons.lock,
+                                              color: Colors.grey,
+                                            )),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 160),
+                          child: const Text(
+                            "¿Olvidaste contraseña?",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                color: Color.fromARGB(255, 98, 98, 98)),
+                          ),
+                        ),
+                        const SizedBox(height: 80,),
+                        Center(
+                          child: Container(
+                            width: 500,
+                            height: 50,
+                            child: ElevatedButton(onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10)
+                                    )
+                                ),
+                                child: const Text("Iniciar Sesión", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)),
+                          ),
+                        ),
+                        const SizedBox(height: 20,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("¿Todavía no tienes cuenta?",
+                              style: TextStyle(fontWeight: FontWeight.bold,
+                                  fontSize: 16, color: Color.fromARGB(255, 61, 84, 207)),
+                            ),
+                            TextButton(onPressed: () {},
+                                child: const Text("Registrarse", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),))
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  
+                ],
+              );
+            },
           ),
-          Column(
-            children: [
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  if (constraints.maxWidth <= Breakpoint.xsmall) {
-                    //codigo,ancho,alto,t1,t2,botones,textoboton
-                    return sollogo("xsmall",100, constraints.maxWidth, 180, 23,
-                        15, 0.85, 12);
-                  } else if (constraints.maxWidth <= Breakpoint.avgsmall) {
-                    return sollogo("avgsmall", 130, constraints.maxWidth, 190,
-                        23, 15, 0.88, 16);
-                  } else if (constraints.maxWidth <= Breakpoint.small) {
-                    return sollogo("small", 150, constraints.maxWidth, 220, 30,
-                        17, 0.8, 20);
-                  } else if (constraints.maxWidth <= Breakpoint.avgmedium) {
-                    return sollogo("avgmedium", 170, constraints.maxWidth, 230,
-                        23, 15, 0.77, 25);
-                  } else if (constraints.maxWidth <= Breakpoint.medium) {
-                    return sollogo("medium", 200, constraints.maxWidth, 250, 29,
-                        20, 0.78, 25);
-                  } else if (constraints.maxWidth <= Breakpoint.avglarg) {
-                    return sollogo("avglarge", 220, constraints.maxWidth, 250,
-                        37, 20, 0.65, 25);
-                  } else if (constraints.maxWidth <= Breakpoint.large) {
-                    return sollogo("large", 230, constraints.maxWidth, 250, 35,
-                        25, 0.62, 25);
-                  } else if (constraints.maxWidth <= Breakpoint.avgxlarge) {
-                    return sollogo("avgxlarge", 250, constraints.maxWidth, 250,
-                        43, 25, 0.55, 25);
-                  } else {
-                    return sollogo(
-                        "xlarge",
-                        270,
-                        constraints.maxWidth,
-                        280,
-                        40,
-                        25,
-                        0.55,
-                        35); /*Text(
-                      "out range",
-                      style: TextStyle(fontSize: 60),
-                    );*/
-                  }
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }

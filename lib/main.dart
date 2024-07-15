@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solvida/componentes/prelogin.dart';
+import 'package:solvida/componentes/solvida.dart';
 
 void main() {
   runApp(const MyApp());
